@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APROVED BY NIMROD | Elite Performance Ecosystem</title>
+    <meta name="description" content="Global gym installations, elite biomechanics, and professional accreditation by Nimrod Ndiema.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;700;900&display=swap');
+        
+        :root {
+            --neon: #ccff00; 
+            --bg: #050505;
+            --surface: #0f0f0f;
+            --gold: #d4af37;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .font-heading {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 30px rgba(204, 255, 0, 0.5);
+        }
+
+        .neon-border {
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+            border: 1px solid var(--neon);
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 40s linear infinite;
+        }
+
+        .product-card {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            border-color: var(--neon);
+            transform: translateY(-12px);
+        }
+
+        .certificate-reveal {
+            position: relative;
+            background: #111;
+            border: 1px solid #222;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.9);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hologram-shimmer {
+            background: linear-gradient(90deg, transparent, rgba(204, 255, 0, 0.15), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--neon); }
+
+        .modal-blur {
+            backdrop-filter: blur(12px);
+            background: rgba(0,0,0,0.95);
+        }
+
+        .input-dark {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .input-dark:focus {
+            border-color: var(--neon);
+            outline: none;
+            box-shadow: 0 0 10px rgba(204, 255, 0, 0.1);
+        }
+
+        /* Responsive Mobile Menu */
+        #mobileMenu {
+            transition: transform 0.5s cubic-bezier(0.85, 0, 0.15, 1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="marquee-container sticky top-0 z-[200] bg-[#ccff00] py-2 overflow-hidden border-b border-black/10">
+        <div class="marquee-content text-black font-black text-[10px] tracking-[0.3em] uppercase whitespace-nowrap">
+            <span class="px-10">APROVED BY NIMROD • 500+ GLOBAL INSTALLATIONS • BIOMECHANICAL MASTERY • ACADEMY ENROLLMENT OPEN • CUSTOM GYM DESIGN SOLUTIONS</span>
+            <span class="px-10">APROVED BY NIMROD • 500+ GLOBAL INSTALLATIONS • BIOMECHANICAL MASTERY • ACADEMY ENROLLMENT OPEN • CUSTOM GYM DESIGN SOLUTIONS</span>
+        </div>
+    </div>
+
+    <nav class="glass-nav px-6 md:px-12 py-5 sticky top-[34px] flex justify-between items-center z-[150]">
+        <div class="flex items-center gap-4 cursor-pointer" onclick="window.scrollTo(0,0)">
+            <div class="w-10 h-10 bg-zinc-900 rounded overflow-hidden border border-white/10 p-1">
+                <img src="https://placehold.co/100x100/111/ccff00?text=N" alt="Nimrod Logo" class="w-full h-full object-contain">
+            </div>
+            <div>
+                <span class="font-heading text-lg md:text-xl tracking-tighter block leading-none">NIMROD</span>
+                <span class="text-[8px] tracking-[0.4em] text-[#ccff00] font-black uppercase">Elite Systems</span>
+            </div>
+        </div>
+        
+        <div class="hidden lg:flex gap-8 items-center">
+            <a href="#installations" class="nav-btn text-[10px] font-black tracking-widest uppercase text-white/50 hover:text-[#ccff00] transition-colors">Installations</a>
+            <a href="#shop" class="nav-btn text-[10px] font-black tracking-widest uppercase text-white/50 hover:text-[#ccff00] transition-colors">Shop</a>
+            <a href="#academy" class="nav-btn text-[10px] font-black tracking-widest uppercase text-white/50 hover:text-[#ccff00] transition-colors">Academy</a>
+            <a href="#consultation" class="nav-btn text-[10px] font-black tracking-widest uppercase text-white/50 hover:text-[#ccff00] transition-colors">Consult</a>
+        </div>
+
+        <div class="flex items-center gap-5">
+            <button onclick="toggleCart()" class="relative group">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-white/50 group-hover:text-[#ccff00] transition-colors">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                    <path d="M3 6h18M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span id="cartCount" class="absolute -top-2 -right-2 bg-[#ccff00] text-black text-[9px] font-black w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            </button>
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-white/50">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <button onclick="openConsultation()" class="hidden md:block px-6 py-2 bg-white text-black text-[9px] font-black uppercase tracking-widest hover:bg-[#ccff00] transition-all">Get Quote</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black z-[300] translate-x-full lg:hidden flex flex-col items-center justify-center gap-10 p-12">
+        <button onclick="toggleMobileMenu()" class="absolute top-10 right-10 text-white/30 font-black tracking-widest uppercase text-xs">Close [X]</button>
+        <a onclick="toggleMobileMenu()" href="#installations" class="text-4xl font-black italic tracking-tighter text-white hover:text-[#ccff00]">INSTALLATIONS</a>
+        <a onclick="toggleMobileMenu()" href="#shop" class="text-4xl font-black italic tracking-tighter text-white hover:text-[#ccff00]">EQUIPMENT</a>
+        <a onclick="toggleMobileMenu()" href="#academy" class="text-4xl font-black italic tracking-tighter text-white hover:text-[#ccff00]">ACADEMY</a>
+        <a onclick="toggleMobileMenu()" href="#consultation" class="text-4xl font-black italic tracking-tighter text-white hover:text-[#ccff00]">CONSULTATION</a>
+        <div class="mt-10 pt-10 border-t border-white/10 w-full text-center">
+            <span class="text-[8px] tracking-[0.5em] text-[#ccff00] uppercase font-black">Admin Access</span>
+            <button onclick="openAdmin()" class="block mx-auto mt-4 text-white/20 uppercase text-[10px] tracking-widest">Terminal Log-in</button>
+        </div>
+    </div>
+
+    <header class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover opacity-20 grayscale">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 z-10 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-8">
+                <span class="w-2 h-2 bg-[#ccff00] rounded-full animate-pulse"></span>
+                <span class="text-[9px] font-black uppercase tracking-widest text-white/60">System Online: Worldwide Logistics Active</span>
+            </div>
+            
+            <h1 class="text-6xl md:text-[140px] font-black italic tracking-tighter leading-[0.85] mb-8">
+                APROVED BY <br><span class="text-[#ccff00] neon-glow">NIMROD</span>
+            </h1>
+            
+            <p class="text-white/40 text-sm md:text-lg tracking-[0.3em] uppercase font-light max-w-2xl mx-auto mb-12">
+                We design and engineer high-performance ecosystems for the world's most demanding environments.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center gap-4 max-w-xl mx-auto">
+                <button onclick="scrollToSection('shop')" class="flex-1 px-8 py-5 bg-[#ccff00] text-black font-black uppercase text-[11px] tracking-widest hover:scale-105 transition-all shadow-xl shadow-[#ccff00]/10">Browse Inventory</button>
+                <button onclick="openConsultation()" class="flex-1 px-8 py-5 border border-white/20 text-white font-black uppercase text-[11px] tracking-widest hover:bg-white hover:text-black transition-all">Start Installation Inquiry</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-20 border-y border-white/5 bg-[#0a0a0a]">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+                <div class="space-y-2">
+                    <span class="text-5xl font-black text-white italic tracking-tighter">500+</span>
+                    <p class="text-[9px] uppercase tracking-widest text-white/30 font-bold">Gyms Installed</p>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-5xl font-black text-[#ccff00] italic tracking-tighter">15</span>
+                    <p class="text-[9px] uppercase tracking-widest text-white/30 font-bold">Countries Reached</p>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-5xl font-black text-white italic tracking-tighter">10k+</span>
+                    <p class="text-[9px] uppercase tracking-widest text-white/30 font-bold">Athletes Certified</p>
+                </div>
+                <div class="space-y-2">
+                    <span class="text-5xl font-black text-[#ccff00] italic tracking-tighter">100%</span>
+                    <p class="text-[9px] uppercase tracking-widest text-white/30 font-bold">Bespoke Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="installations" class="py-32 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-end justify-between mb-20 gap-8">
+                <div class="max-w-2xl">
+                    <span class="text-[#ccff00] text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Commercial Solutions</span>
+                    <h2 class="text-5xl md:text-8xl italic font-black tracking-tighter uppercase leading-[0.85]">Global Gym <br>Engineering</h2>
+                </div>
+                <div class="text-right">
+                    <p class="text-white/30 text-xs uppercase tracking-widest leading-loose max-w-sm ml-auto">
+                        From home studios to high-end commercial athletic centers, we provide the blueprints and the hardware.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-10 flex flex-col justify-end">
+                        <h4 class="text-2xl font-black italic tracking-tighter mb-2">Commercial Hubs</h4>
+                        <p class="text-[9px] text-white/40 uppercase tracking-widest">Full Scale Facility Design</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-10 flex flex-col justify-end">
+                        <h4 class="text-2xl font-black italic tracking-tighter mb-2">Performance Labs</h4>
+                        <p class="text-[9px] text-white/40 uppercase tracking-widest">Biomechanical Analysis Centers</p>
+                    </div>
+                </div>
+                <div class="group relative aspect-[4/5] overflow-hidden rounded-xl">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent p-10 flex flex-col justify-end">
+                        <h4 class="text-2xl font-black italic tracking-tighter mb-2">Private Studios</h4>
+                        <p class="text-[9px] text-white/40 uppercase tracking-widest">Bespoke Home Environments</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <button onclick="openConsultation()" class="px-12 py-6 bg-white text-black font-black uppercase text-[11px] tracking-widest hover:bg-[#ccff00] transition-colors">Request a Facility Blueprint</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="py-32 border-y border-white/5 bg-[#050505]">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div>
+                    <span id="catLabel" class="text-[#ccff00] text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Official Release</span>
+                    <h2 id="catTitle" class="text-5xl md:text-8xl italic font-black tracking-tighter uppercase">Elite Gear</h2>
+                </div>
+                <div class="flex gap-3 overflow-x-auto pb-4 w-full md:w-auto">
+                    <button onclick="switchCategory('gear')" id="btn-gear" class="cat-pill px-6 py-3 border border-[#ccff00] text-[9px] font-black uppercase tracking-widest bg-[#ccff00] text-black">Gear</button>
+                    <button onclick="switchCategory('shoes')" id="btn-shoes" class="cat-pill px-6 py-3 border border-white/10 text-[9px] font-black uppercase tracking-widest text-white/40 hover:border-white/40">Footwear</button>
+                    <button onclick="switchCategory('apparel')" id="btn-apparel" class="cat-pill px-6 py-3 border border-white/10 text-[9px] font-black uppercase tracking-widest text-white/40 hover:border-white/40">Apparel</button>
+                    <button onclick="switchCategory('grocery')" id="btn-grocery" class="cat-pill px-6 py-3 border border-white/10 text-[9px] font-black uppercase tracking-widest text-white/40 hover:border-white/40">Nutrition</button>
+                </div>
+            </div>
+
+            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Products injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <section id="academy" class="py-32 bg-[#080808] overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-24">
+                <div class="lg:w-1/2">
+                    <span class="text-[#ccff00] text-[10px] font-black uppercase tracking-[0.5em] mb-4 block">Professional Accreditation</span>
+                    <h2 class="text-6xl md:text-8xl font-black italic mb-10 leading-[0.85]">MASTER THE <br>BIOLOGY</h2>
+                    
+                    <div id="certSelector" class="flex flex-wrap gap-3 mb-12">
+                        <!-- Cert levels injected here -->
+                    </div>
+
+                    <p id="certDescription" class="text-white/30 leading-loose uppercase text-sm tracking-widest mb-12">
+                        Graduation from the Nimrod Academy signifies professional-grade expertise in biomechanics and nutritional optimization.
+                    </p>
+
+                    <button onclick="openAcademyEnquiry()" class="px-10 py-5 bg-[#ccff00] text-black font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all">Download Prospectus</button>
+                </div>
+
+                <div class="lg:w-1/2 w-full">
+                    <div id="certContainer" class="certificate-reveal aspect-[1.4/1] w-full max-w-xl mx-auto rounded-xl overflow-hidden p-1 bg-gradient-to-br from-white/15 to-transparent relative">
+                        <div class="hologram-shimmer absolute inset-0 opacity-20 pointer-events-none"></div>
+                        <div class="bg-[#0f0f0f] h-full w-full p-8 md:p-12 flex flex-col justify-between relative z-10 border border-white/5">
+                            <div class="flex justify-between items-start">
+                                <img src="https://placehold.co/80x80/000/fff?text=CERT" class="w-14 h-14 grayscale brightness-200">
+                                <div class="text-right">
+                                    <span id="certId" class="text-[7px] font-black text-[#ccff00] tracking-[0.4em]">ACCREDITED: NIMROD_9921</span>
+                                    <span class="block text-[6px] text-white/20 mt-1 uppercase">Digital Blockchain Verification</span>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center">
+                                <span class="text-[9px] uppercase tracking-[0.8em] text-white/20 block mb-6">Credential Release</span>
+                                <h3 id="certDisplayTitle" class="text-3xl md:text-5xl font-black italic mb-4 tracking-tighter">ELITE ATHLETE</h3>
+                                <div class="h-px w-20 bg-[#ccff00]/40 mx-auto mb-6"></div>
+                                <p id="certDisplayProtocol" class="text-[10px] uppercase tracking-[0.4em] text-white/50">Human Biomechanics & Performance Protocols</p>
+                            </div>
+
+                            <div class="flex justify-between items-end">
+                                <div class="border-t border-white/10 pt-4 w-1/2">
+                                    <span class="block text-[6px] uppercase tracking-widest text-white/30">Executive Signature</span>
+                                    <span class="block font-black italic uppercase text-sm mt-1">Nimrod Ndiema</span>
+                                </div>
+                                <div class="text-right">
+                                    <div class="bg-[#ccff00]/5 px-4 py-2 border border-[#ccff00]/20 rounded text-[8px] font-bold tracking-[0.4em] text-[#ccff00]">VERIFIED STATUS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-[#ccff00] text-black">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-7xl font-black italic tracking-tighter mb-8">GET THE ELITE <br>BLUEPRINT</h2>
+            <p class="max-w-xl mx-auto font-bold uppercase text-xs tracking-widest mb-12 opacity-70">
+                Join our intelligence network. Receive exclusive biomechanical reports and priority access to new gear drops.
+            </p>
+            <form onsubmit="handleLeadMagnet(event)" class="max-w-md mx-auto flex flex-col md:flex-row gap-4">
+                <input required type="email" placeholder="EMAIL ADDRESS" class="flex-1 bg-black/10 border-2 border-black/20 p-5 font-black uppercase text-[10px] tracking-widest outline-none focus:border-black transition-all">
+                <button type="submit" class="bg-black text-white px-10 py-5 font-black uppercase text-[10px] tracking-widest hover:bg-zinc-800 transition-all">Initialize</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-20 bg-black border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-10 h-10 bg-[#ccff00] rounded p-1">
+                            <img src="https://placehold.co/100x100/ccff00/000?text=N" class="w-full h-full object-contain">
+                        </div>
+                        <span class="font-heading text-xl tracking-tighter">NIMROD</span>
+                    </div>
+                    <p class="text-white/30 text-xs leading-loose uppercase tracking-widest">
+                        The global standard in industrial human performance and facility engineering.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-[#ccff00] text-[10px] font-black uppercase tracking-widest mb-8">Navigation</h5>
+                    <ul class="space-y-4 text-[10px] font-bold uppercase tracking-widest text-white/50">
+                        <li><a href="#shop" class="hover:text-white transition-colors">Equipment Shop</a></li>
+                        <li><a href="#installations" class="hover:text-white transition-colors">Facility Design</a></li>
+                        <li><a href="#academy" class="hover:text-white transition-colors">Nimrod Academy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Brand Assets</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[#ccff00] text-[10px] font-black uppercase tracking-widest mb-8">Connect</h5>
+                    <ul class="space-y-4 text-[10px] font-bold uppercase tracking-widest text-white/50">
+                        <li><a href="https://wa.me/254759500240" class="hover:text-white transition-colors">WhatsApp Support</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Email Terminal</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[#ccff00] text-[10px] font-black uppercase tracking-widest mb-8">Location</h5>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-white/30 leading-loose">
+                        Nairobi HQ / Global Logistics<br>
+                        Industrial Area Unit 12<br>
+                        Kenya
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/5 gap-6">
+                <span class="text-[8px] text-white/20 uppercase tracking-[0.5em]">© 2024 NIMROD ELITE HUB | ALL RIGHTS RESERVED</span>
+                <div class="flex gap-8 text-[8px] text-white/20 uppercase tracking-[0.5em]">
+                    <a href="#" class="hover:text-white">Privacy Protocol</a>
+                    <a href="#" class="hover:text-white">Terms of Deployment</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Consultation Modal -->
+    <div id="consultModal" class="fixed inset-0 modal-blur z-[400] hidden flex items-center justify-center p-6">
+        <div class="bg-[#0f0f0f] border border-white/10 rounded-2xl w-full max-w-xl p-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 p-4">
+                <button onclick="closeConsultation()" class="text-white/20 hover:text-white uppercase text-[10px] font-black">Close [Esc]</button>
+            </div>
+            <h3 class="text-3xl font-black italic tracking-tighter text-[#ccff00] mb-2 uppercase">Request a Quote</h3>
+            <p class="text-white/40 text-[9px] uppercase tracking-widest mb-10">Define your objective. Our engineering team will respond within 24H.</p>
+            
+            <form onsubmit="handleConsultationSubmit(event)" class="space-y-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <input required type="text" placeholder="NAME" class="input-dark w-full p-4 text-[10px] font-bold uppercase">
+                    <input required type="email" placeholder="EMAIL" class="input-dark w-full p-4 text-[10px] font-bold uppercase">
+                </div>
+                <select required class="input-dark w-full p-4 text-[10px] font-bold uppercase">
+                    <option value="">PROJECT TYPE</option>
+                    <option value="commercial">Commercial Gym Installation</option>
+                    <option value="private">Private Studio Design</option>
+                    <option value="academy">Academy Enrollment Inquiry</option>
+                    <option value="equipment">Bulk Equipment Order</option>
+                </select>
+                <textarea placeholder="PROJECT DETAILS (LOCATION, TIMELINE, BUDGET)" class="input-dark w-full h-32 p-4 text-[10px] font-bold uppercase"></textarea>
+                <button type="submit" class="w-full bg-[#ccff00] text-black py-5 font-black uppercase text-[11px] tracking-widest hover:scale-[1.02] transition-all">Submit Protocol Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 modal-blur z-[400] hidden flex items-center justify-end">
+        <div class="bg-black w-full max-w-md h-full p-12 border-l border-white/10 flex flex-col">
+            <div class="flex justify-between items-center mb-12">
+                <h3 class="text-3xl font-black italic tracking-tighter uppercase text-white">Your Manifest</h3>
+                <button onclick="toggleCart()" class="text-white/20 hover:text-white uppercase text-[10px] font-black">Close</button>
+            </div>
+            
+            <div id="cartItems" class="flex-1 overflow-y-auto space-y-6 mb-12">
+                <!-- Cart items injected here -->
+            </div>
+
+            <div class="border-t border-white/10 pt-10 space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="text-white/40 uppercase text-[10px] font-black tracking-widest">Manifest Total</span>
+                    <span id="cartTotal" class="text-3xl font-black italic tracking-tighter text-[#ccff00]">$0</span>
+                </div>
+                <button onclick="finalizeOrder()" class="w-full bg-white text-black py-5 font-black uppercase text-[11px] tracking-widest hover:bg-[#ccff00] transition-colors">Finalize Order via WhatsApp</button>
+                <p class="text-[8px] text-white/20 text-center uppercase tracking-widest">Taxes and Shipping calculated at checkout.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminModal" class="fixed inset-0 modal-blur z-[400] hidden flex items-center justify-center p-6">
+        <div class="bg-[#0f0f0f] border border-white/10 rounded-2xl w-full max-w-2xl p-12 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-12">
+                <h3 class="text-3xl font-black italic tracking-tighter text-[#ccff00]">Management Terminal</h3>
+                <button onclick="closeAdmin()" class="text-white/20 uppercase text-[9px] font-bold">Close_Terminal</button>
+            </div>
+
+            <div class="flex gap-4 mb-8 border-b border-white/5 pb-4">
+                <button onclick="switchAdminTab('assets')" id="tabBtnAssets" class="text-[9px] font-black uppercase tracking-widest text-[#ccff00]">Asset Deployment</button>
+                <button onclick="switchAdminTab('certs')" id="tabBtnCerts" class="text-[9px] font-black uppercase tracking-widest text-white/20">Academy Protocols</button>
+            </div>
+            
+            <div id="adminAssetsSection" class="space-y-8">
+                <div>
+                    <label class="block text-[8px] font-black uppercase tracking-widest text-white/40 mb-3">Media (Direct URL)</label>
+                    <input type="text" id="assetMediaUrl" placeholder="IMAGE/VIDEO URL" class="w-full bg-black border border-white/10 p-4 text-[10px] text-white outline-none focus:border-[#ccff00]">
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <input id="assetName" type="text" placeholder="PRODUCT NAME" class="bg-black border border-white/10 p-4 text-[10px] font-bold uppercase outline-none focus:border-[#ccff00]">
+                    <input id="assetPrice" type="number" placeholder="PRICE (USD)" class="bg-black border border-white/10 p-4 text-[10px] font-bold uppercase outline-none focus:border-[#ccff00]">
+                </div>
+                <select id="assetCategory" class="w-full bg-black border border-white/10 p-4 text-[10px] font-bold uppercase outline-none focus:border-[#ccff00]">
+                    <option value="gear">GEAR</option>
+                    <option value="shoes">FOOTWEAR</option>
+                    <option value="apparel">APPAREL</option>
+                    <option value="grocery">NUTRITION</option>
+                </select>
+                <input id="assetTag" type="text" placeholder="TAG (e.g., NEW ARRIVAL)" class="w-full bg-black border border-white/10 p-4 text-[10px] font-bold uppercase outline-none focus:border-[#ccff00]">
+                
+                <button onclick="deployAsset()" class="w-full bg-white text-black py-5 font-black uppercase text-[10px] tracking-widest hover:bg-[#ccff00]">Deploy Asset to System</button>
+            </div>
+
+            <div id="adminCertsSection" class="space-y-8 hidden">
+                <div class="grid grid-cols-2 gap-6">
+                    <input id="certTitleInput" type="text" placeholder="CERT TITLE" class="bg-black border border-white/10 p-4 text-[10px] font-bold uppercase outline-none focus:border-[#ccff00]">
+                    <input id="certCodeInput" type="text" placeholder="PROTOCOL CODE" class="bg-black border border-white/10 p-4 text-[10px] font-bold uppercase outline-none focus:border-[#ccff00]">
+                </div>
+                <textarea id="certDescInput" placeholder="COURSE DESCRIPTION" class="w-full h-32 bg-black border border-white/10 p-4 text-[10px] font-bold uppercase outline-none focus:border-[#ccff00]"></textarea>
+                <input id="certProtocolInput" type="text" placeholder="SUB-PROTOCOL TEXT" class="w-full bg-black border border-white/10 p-4 text-[10px] font-bold uppercase outline-none focus:border-[#ccff00]">
+                <button onclick="deployCertification()" class="w-full bg-[#ccff00] text-black py-5 font-black uppercase text-[10px] tracking-widest">Deploy Academy Protocol</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications -->
+    <div id="notify" class="fixed top-12 left-1/2 -translate-x-1/2 z-[500] bg-[#ccff00] text-black px-10 py-5 rounded-full font-black text-[11px] tracking-widest uppercase transform -translate-y-32 transition-transform duration-500 shadow-2xl flex items-center gap-4">
+        <span id="notifyIcon">✓</span>
+        <span id="notifyMsg">System Sync Successful</span>
+    </div>
+
+    <!-- WhatsApp Quick Connect -->
+    <a href="https://wa.me/254759500240" target="_blank" class="fixed bottom-10 right-10 z-[250] bg-[#ccff00] text-black p-5 rounded-full hover:scale-110 active:scale-95 transition-all shadow-2xl shadow-[#ccff00]/20 flex items-center justify-center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    </a>
+
+    <script>
+        const DEFAULT_ASSETS = [
+            { id: 1, name: "Modular Power Station", price: 2450, image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&q=80&w=800", tag: "Heavy Duty", category: "gear" },
+            { id: 2, name: "Comp Plate Set (140kg)", price: 890, image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=800", tag: "Professional", category: "gear" },
+            { id: 3, name: "Elite Trainer V2", price: 185, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800", tag: "Limitless", category: "shoes" },
+            { id: 4, name: "Industrial Compression", price: 75, image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=80&w=800", tag: "Performance", category: "apparel" },
+            { id: 5, name: "Nimrod Sea Moss Fuel", price: 55, image: "https://images.unsplash.com/photo-1610970881699-44a5587cabec?auto=format&fit=crop&q=80&w=800", tag: "Bio-Harvested", category: "grocery" },
+            { id: 6, name: "Precision Dumbbell Rack", price: 1200, image: "https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&q=80&w=800", tag: "Steel Core", category: "gear" },
+            { id: 7, name: "Aero-Mesh Vest", price: 65, image: "https://images.unsplash.com/photo-1518459031867-a89b944bffe4?auto=format&fit=crop&q=80&w=800", tag: "Lightweight", category: "apparel" },
+            { id: 8, name: "Recovery Electrolytes", price: 35, image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=800", tag: "Rapid Hydration", category: "grocery" }
+        ];
+
+        const DEFAULT_CERTS = [
+            { id: 1, title: "ELITE ATHLETE", code: "NIMROD_9921", protocol: "Human Biomechanics & Performance Protocols", description: "Initial graduation from the Nimrod Academy signifying professional-grade expertise in biomechanics.", verification: "VERIFICATION ACTIVE" },
+            { id: 2, title: "MASTER PRACTITIONER", code: "NIMROD_MASTER_02", protocol: "Industrial Strength Engineering", description: "Advanced accreditation focusing on high-load neurological adaptation and industrial-scale methodology.", verification: "VERIFICATION ACTIVE" },
+            { id: 3, title: "FACILITY ENGINEER", code: "NIMROD_ENG_05", protocol: "Performance Environment Design", description: "Specialized certification for architects and project managers creating high-performance gym ecosystems.", verification: "VERIFICATION ACTIVE" }
+        ];
+
+        let state = {
+            products: [...DEFAULT_ASSETS],
+            certifications: [...DEFAULT_CERTS],
+            cart: [],
+            currentCat: 'gear',
+            activeCertId: 1
+        };
+
+        // Initialize UI
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            if(!grid) return;
+            grid.innerHTML = '';
+            
+            const filtered = state.products.filter(p => p.category === state.currentCat);
+            
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card p-6 rounded-2xl group';
+                card.innerHTML = `
+                    <div class="absolute top-4 right-4 bg-[#ccff00] text-black text-[7px] font-black px-3 py-1.5 uppercase z-10 rounded-full">${p.tag}</div>
+                    <div class="aspect-square bg-zinc-900/50 rounded-xl overflow-hidden mb-6 border border-white/5 relative">
+                        <img src="${p.image}" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    </div>
+                    <h3 class="text-xl font-black italic tracking-tighter mb-1 text-white group-hover:text-[#ccff00] transition-colors">${p.name}</h3>
+                    <p class="text-[8px] text-white/30 uppercase tracking-widest mb-4">Industrial Grade</p>
+                    <div class="flex justify-between items-center mt-6 pt-6 border-t border-white/5">
+                        <span class="text-2xl font-black text-white tracking-tighter">$${p.price}</span>
+                        <button onclick="addToCart(${p.id})" class="px-5 py-3 bg-white text-black font-black uppercase text-[8px] tracking-widest hover:bg-[#ccff00] transition-all transform active:scale-95">Add to Order</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function switchCategory(cat) {
+            state.currentCat = cat;
+            document.getElementById('catTitle').innerText = `Elite ${cat === 'grocery' ? 'Fuel' : cat.charAt(0).toUpperCase() + cat.slice(1)}`;
+            
+            // Update UI buttons
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                btn.classList.replace('bg-[#ccff00]', 'bg-transparent');
+                btn.classList.replace('text-black', 'text-white/40');
+                btn.classList.replace('border-[#ccff00]', 'border-white/10');
+            });
+            const activeBtn = document.getElementById(`btn-${cat}`);
+            activeBtn.classList.replace('bg-transparent', 'bg-[#ccff00]');
+            activeBtn.classList.replace('text-white/40', 'text-black');
+            activeBtn.classList.replace('border-white/10', 'border-[#ccff00]');
+            
+            renderProducts();
+        }
+
+        function addToCart(id) {
+            const prod = state.products.find(p => p.id === id);
+            state.cart.push(prod);
+            updateCartUI();
+            showNotify(`DEPLOYED: ${prod.name.toUpperCase()}`);
+        }
+
+        function removeFromCart(index) {
+            state.cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const count = document.getElementById('cartCount');
+            const itemsList = document.getElementById('cartItems');
+            const totalDisplay = document.getElementById('cartTotal');
+            
+            count.innerText = state.cart.length;
+            itemsList.innerHTML = '';
+            
+            let total = 0;
+            state.cart.forEach((item, index) => {
+                total += item.price;
+                const div = document.createElement('div');
+                div.className = 'flex gap-4 items-center p-4 bg-zinc-900 rounded-xl border border-white/5';
+                div.innerHTML = `
+                    <div class="w-16 h-16 bg-black rounded overflow-hidden">
+                        <img src="${item.image}" class="w-full h-full object-cover grayscale opacity-50">
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-[10px] font-black uppercase tracking-widest text-white">${item.name}</h4>
+                        <span class="text-[10px] font-black text-[#ccff00]">$${item.price}</span>
+                    </div>
+                    <button onclick="removeFromCart(${index})" class="text-white/20 hover:text-red-500 font-bold text-xs uppercase p-2">×</button>
+                `;
+                itemsList.appendChild(div);
+            });
+            
+            totalDisplay.innerText = `$${total}`;
+            if(state.cart.length === 0) {
+                itemsList.innerHTML = '<div class="h-full flex flex-col items-center justify-center text-white/20"><span class="text-5xl mb-4 italic font-black">EMPTY</span><p class="text-[9px] uppercase tracking-widest">Manifest is vacant</p></div>';
+            }
+        }
+
+        function finalizeOrder() {
+            if(state.cart.length === 0) return showNotify("MANIFEST IS EMPTY");
+            
+            let manifest = "APROVED BY NIMROD | ORDER MANIFEST:\n\n";
+            state.cart.forEach((i, idx) => manifest += `${idx+1}. ${i.name} - $${i.price}\n`);
+            manifest += `\nTOTAL: $${state.cart.reduce((a, b) => a + b.price, 0)}\n`;
+            manifest += "\nPlease initialize shipping protocols for this order.";
+            
+            window.open(`https://wa.me/254759500240?text=${encodeURIComponent(manifest)}`, '_blank');
+        }
+
+        function renderAcademy() {
+            const selector = document.getElementById('certSelector');
+            selector.innerHTML = '';
+            
+            state.certifications.forEach(cert => {
+                const active = state.activeCertId === cert.id;
+                const btn = document.createElement('button');
+                btn.onclick = () => selectCert(cert.id);
+                btn.className = `px-5 py-3 border text-[9px] font-black uppercase tracking-widest transition-all ${active ? 'bg-[#ccff00] text-black border-[#ccff00]' : 'border-white/10 text-white/40 hover:border-white/40'}`;
+                btn.innerText = cert.title;
+                selector.appendChild(btn);
+            });
+
+            const current = state.certifications.find(c => c.id === state.activeCertId) || state.certifications[0];
+            document.getElementById('certDescription').innerText = current.description;
+            document.getElementById('certId').innerText = `ACCREDITED: ${current.code}`;
+            document.getElementById('certDisplayTitle').innerText = current.title;
+            document.getElementById('certDisplayProtocol').innerText = current.protocol;
+            
+            gsap.from("#certContainer", { opacity: 0, x: 20, duration: 0.8, ease: "power4.out" });
+        }
+
+        function selectCert(id) {
+            state.activeCertId = id;
+            renderAcademy();
+        }
+
+        // Modal Handlers
+        function openAdmin() { document.getElementById('adminModal').classList.remove('hidden'); }
+        function closeAdmin() { document.getElementById('adminModal').classList.add('hidden'); }
+        
+        function openConsultation() { document.getElementById('consultModal').classList.remove('hidden'); }
+        function closeConsultation() { document.getElementById('consultModal').classList.add('hidden'); }
+        
+        function toggleCart() { 
+            const modal = document.getElementById('cartModal');
+            modal.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('translate-x-full');
+        }
+
+        function handleConsultationSubmit(e) {
+            e.preventDefault();
+            closeConsultation();
+            showNotify("INQUIRY LOGGED. STAND BY.");
+        }
+
+        function handleLeadMagnet(e) {
+            e.preventDefault();
+            e.target.reset();
+            showNotify("ELITE BLUEPRINT SENT TO TERMINAL");
+        }
+
+        function showNotify(msg) {
+            const el = document.getElementById('notify');
+            document.getElementById('notifyMsg').innerText = msg;
+            el.classList.remove('-translate-y-32');
+            setTimeout(() => el.classList.add('-translate-y-32'), 4000);
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function switchAdminTab(tab) {
+            const assetsSec = document.getElementById('adminAssetsSection');
+            const certsSec = document.getElementById('adminCertsSection');
+            const assetBtn = document.getElementById('tabBtnAssets');
+            const certBtn = document.getElementById('tabBtnCerts');
+
+            if(tab === 'assets') {
+                assetsSec.classList.remove('hidden');
+                certsSec.classList.add('hidden');
+                assetBtn.classList.replace('text-white/20', 'text-[#ccff00]');
+                certBtn.classList.replace('text-[#ccff00]', 'text-white/20');
+            } else {
+                certsSec.classList.remove('hidden');
+                assetsSec.classList.add('hidden');
+                certBtn.classList.replace('text-white/20', 'text-[#ccff00]');
+                assetBtn.classList.replace('text-[#ccff00]', 'text-white/20');
+            }
+        }
+
+        function deployAsset() {
+            const name = document.getElementById('assetName').value;
+            const price = parseFloat(document.getElementById('assetPrice').value);
+            const cat = document.getElementById('assetCategory').value;
+            const tag = document.getElementById('assetTag').value;
+            const url = document.getElementById('assetMediaUrl').value || 'https://placehold.co/800x800/111/fff?text=ASSET';
+
+            if(!name || !price) return;
+
+            state.products.push({ id: Date.now(), name, price, category: cat, tag, image: url });
+            renderProducts();
+            closeAdmin();
+            showNotify("SYSTEM ASSET SYNCED");
+        }
+
+        // GSAP Scroll Animations
+        function initAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            gsap.utils.toArray('section').forEach(section => {
+                gsap.from(section, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        }
+
+        window.onload = () => {
+            renderProducts();
+            renderAcademy();
+            initAnimations();
+        };
+
+        // Close modals on Escape key
+        window.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape') {
+                closeConsultation();
+                closeAdmin();
+                document.getElementById('cartModal').classList.add('hidden');
+                document.getElementById('mobileMenu').classList.add('translate-x-full');
+            }
+        });
+    </script>
+</body>
+</html>
